@@ -2,9 +2,18 @@ export interface DefaultSettings {
   /**
    * primary color of ant design
    */
-  primaryColor: string;
+  navTheme: string; // theme for nav menu
+  primaryColor: string; // primary color of ant design
+  layout: string;  // nav menu position: sidemenu or topmenu
+  contentWidth: string; // layout of content: Fluid or Fixed, only works when layout is topmenu
+  fixedHeader: boolean; // sticky header
+  autoHideHeader: boolean; // auto hide header
+  fixSiderbar: boolean; // sticky siderbar
   title: string;
   pwa: boolean;
+  menu: {
+    disableLocal: boolean,
+  };
   // Your custom iconfont Symbol script Url
   // eg：//at.alicdn.com/t/font_1039637_btcrd5co4w.js
   // 注意：如果需要图标多色，Iconfont 图标项目里要进行批量去色处理

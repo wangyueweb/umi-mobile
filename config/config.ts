@@ -1,5 +1,8 @@
 import { IConfig } from 'umi-types';
 import pageRoutes from './router.config';
+import defaultSettings from './defaultSettings';
+
+const { primaryColor } = defaultSettings;
 
 // ref: https://umijs.org/config/
 const config: IConfig = {
@@ -31,8 +34,14 @@ const config: IConfig = {
           /components\//,
         ],
       },
-    }],
+    }]
   ],
+  // Theme for antd
+  // https://ant.design/docs/react/customize-theme-cn
+  theme: {
+    'primary-color': primaryColor,
+  },
+
   define: {
     APP_TYPE: process.env.APP_TYPE || '',
   },
