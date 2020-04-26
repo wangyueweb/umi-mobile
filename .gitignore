@@ -10,6 +10,8 @@
 
 # production
 /dist
+/examples/weilai-h5/node_modules
+/examples/weilai-h5/.vscode
 
 # misc
 .DS_Store

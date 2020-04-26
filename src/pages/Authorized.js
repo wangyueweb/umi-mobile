@@ -1,17 +1,19 @@
 import React from 'react';
-// import { Redirect } from 'umi';
+import { Redirect } from 'umi';
 import pathToRegexp from 'path-to-regexp';
 // import { connect } from 'dva';
-// import Authorized from '@/utils/Authorized';
+import Authorized from '@/utils/Authorized';
 import { getAuthority } from '@/utils/authority';
-// import Exception403 from '@/pages/Exception/403';
+import Exception403 from '@/pages/Exception/403';
+// import { notification, Button, message } from 'antd-mobile';
+
 
 function AuthComponent({ children, location, route: { routes }, }) {
   const auth = getAuthority();
   const isLogin = auth && auth[0] !== 'guest';
 
   const getRouteAuthority = (path, routeData) => {
-    console.log(path, routeData)
+    console.log(path, routeData);
     let authorities;
     routeData.forEach(route => {
       console.log(route);
@@ -32,14 +34,12 @@ function AuthComponent({ children, location, route: { routes }, }) {
   
   // getRouteAuthority(location.pathname, routerData)
   return (
-    <div>用户登录</div>
-
-    // <Authorized
-    //     // authority={getRouteAuthority(location.pathname, routerData)}
-    //     noMatch={isLogin ? <Exception403 /> : <Redirect to="/user/login" />}
-    // >
-    //     {children}
-    // </Authorized>
+    <Authorized
+        // authority={getRouteAuthority(location.pathname, routerData)}
+        noMatch={isLogin ? <Exception403 /> : <Redirect to="/user/login" />}
+    >
+        
+    </Authorized>
   );
 }
 
