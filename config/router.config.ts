@@ -5,8 +5,38 @@ export default [
     Routes: ['src/pages/Authorized'],
     // authority: ['user', 'admin'],
     routes: [
-      { path: '/', component: './index', title: '首页' },
+      { path: '/', component: './index', title: '首页', authority: ['user', 'admin'], },
       { path: '/me', component: './me', title: '个人中心' },
+
+      {
+        path: '/user',
+        component: '../layouts/UserLayout',
+        routes: [
+          {
+            path: '/user',
+            redirect: '/user/login',
+          },
+          {
+            name: 'login',
+            path: '/user/login',
+            component: './user/login',
+          },
+          {
+            name: 'register-result',
+            path: '/user/register-result',
+            component: './user/register-result',
+          },
+          {
+            name: 'register',
+            path: '/user/register',
+            component: './user/register',
+          },
+          {
+            component: '404',
+          },
+        ],
+      },
+
       { component: '404' },
     ],
   },
