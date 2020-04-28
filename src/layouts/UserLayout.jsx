@@ -1,10 +1,7 @@
-// import { DefaultFooter, getMenuData, getPageTitle } from '@ant-design/pro-layout';
-// import DocumentTitle from 'react-document-title';
 import Link from 'umi/link';
 import React from 'react';
 import { connect } from 'dva';
-import { formatMessage } from 'umi-plugin-react/locale';
-// import SelectLang from '@/components/SelectLang';
+
 import logo from '../assets/logo.svg';
 import styles from './UserLayout.less';
 
@@ -21,35 +18,22 @@ const UserLayout = props => {
       pathname: '',
     },
   } = props;
-  // const { breadcrumb } = getMenuData(routes);
+
   return (
-    // <DocumentTitle
-    //   title={getPageTitle({
-    //     pathname: location.pathname,
-    //     breadcrumb,
-    //     formatMessage,
-    //     ...props,
-    //   })}
-    // >
-      <div className={styles.container}>
-        <div className={styles.lang}>
-          {/* <SelectLang /> */}
-        </div>
-        <div className={styles.content}>
-          <div className={styles.top}>
-            <div className={styles.header}>
-              <Link to="/">
-                <img alt="logo" className={styles.logo} src={logo} />
-                <span className={styles.title}>xx网</span>
-              </Link>
-            </div>
-            <div className={styles.desc}>xx网 “我”的自传体小说！</div>
+    <div className={styles.container}>
+      <div className={styles.content}>
+        <div className={styles.top}>
+          <div className={styles.header}>
+            <Link to="/">
+              <img alt="logo" className={styles.logo} src={logo} />
+              <span className={styles.title}>接处警</span>
+            </Link>
           </div>
-          {children}
+          <div className={styles.desc}>xx接处警 版本号: xxx</div>
         </div>
-        {/* <DefaultFooter /> */}
+        {children}
       </div>
-    // </DocumentTitle>
+    </div>
   );
 };
 

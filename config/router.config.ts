@@ -5,7 +5,7 @@ export default [
     Routes: ['src/pages/Authorized'],
     // authority: ['user', 'admin'],
     routes: [
-      { path: '/', component: './index', title: '首页', authority: ['user', 'admin'], },
+      { path: '/', component: './index', title: '首页', authority: ['user'], },
       { path: '/me', component: './me', title: '个人中心' },
 
       {
@@ -15,11 +15,13 @@ export default [
           {
             path: '/user',
             redirect: '/user/login',
+            
           },
           {
             name: 'login',
             path: '/user/login',
             component: './user/login',
+            authority: ['guest']
           },
           {
             name: 'register-result',

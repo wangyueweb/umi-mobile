@@ -6,7 +6,6 @@ let CURRENT = 'NULL';
  */
 const renderAuthorize = Authorized => currentAuthority => {
 
-  console.log(Authorized, currentAuthority)
   if (currentAuthority) {
     if (typeof currentAuthority === 'function') {
       CURRENT = currentAuthority();
